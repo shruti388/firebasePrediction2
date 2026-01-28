@@ -140,8 +140,12 @@ function showImage() {
   riskMessageDiv.innerText = riskMessage;
 }
 
-function goBack() {
-  window.location.href = "index.html"; // or index.html
+// function goBack() {
+//   window.location.href = "index.html"; 
+// }
+
+function goToUpdate() {
+  window.location.href = "http://127.0.0.1:5500/update.html";
 }
 
 
