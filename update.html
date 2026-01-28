@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Real-Time Updates</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: rgb(77, 21, 21);
+      text-align: center;
+    }
+
+    
+    /* .weather-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+    } */ 
+
+    /* .weather-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: slowZoom 18s linear infinite;
+      opacity: 0.9;
+    }
+
+    /* @keyframes slowZoom {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    } */
+
+    /* CARD */
+    .container {
+      /* background: rgba(0, 0, 0, 0.55); */
+      background: rgb(60, 60, 100);
+      padding: 25px;
+      margin: 60px auto;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 16px;
+    }
+
+    h2 {
+      color: #38bdf8;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+
+    /* BUTTON */
+    .traffic-btn {
+      padding: 14px 28px;
+      font-size: 16px;
+      background: #0ea5e9;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .traffic-btn:hover {
+      background: #0284c7;
+    }
+
+    /* MAP */
+    #trafficBox {
+      margin-top: 20px;
+      display: none;
+    }
+
+    iframe {
+      width: 100%;
+      height: 350px;
+      border: 0;
+      border-radius: 12px;
+    }
+    /* Animated weather background */
+.weather-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.weather-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: slowZoom 18s ease-in-out infinite;
+}
+
+@keyframes slowZoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+
+  </style>
+</head>
+
+<body>
+
+<!-- 
+<div class="weather-bg">
+  <img id="weatherAnim" src="" alt="Weather Animation">
+</div> -->
+
+<div class="container">
+  <h2>🔴 Real-Time Updates</h2>
+
+  <p id="weatherText"></p>
+
+  <button class="traffic-btn" onclick="showTraffic()">
+    🚦 View Real-Time Traffic
+  </button>
+
+  <div id="trafficBox">
+    <iframe id="trafficMap" loading="lazy"></iframe>
+  </div>
+</div>
+
+<script>
+ 
+  function setWeather(type) {
+    const img = document.getElementById("weatherAnim");
+    const text = document.getElementById("weatherText");
+
+    if (type === "RAIN") {
+       img.src = "assets/rain.gif";
+      text.innerText = "🌧️ Rainy road conditions detected";
+    }
+    else if (type === "HOT") {
+       img.src = "assets/hot.gif";
+      text.innerText = "☀️ Hot & dry road conditions";
+    }
+    else if (type === "SMOKE") {
+      img.src = "assets/smoke.gif";
+      text.innerText = "🌫️ Low visibility due to smoke/fog";
+    }
+    else {
+       img.src = "/assets/clear.gif";
+      text.innerText = "🌤️ Normal road conditions";
+    }
+  }
+
+ 
+  function showTraffic() {
+    const city = localStorage.getItem("city");
+    const map = document.getElementById("trafficMap");
+
+    map.src = `https://www.google.com/maps?q=${city}&output=embed&layer=t`;
+    document.getElementById("trafficBox").style.display = "block";
+  }
+
+  /* EXAMPLE */
+ setWeather("RAIN");   // change dynamically later
+
+function setWeatherBackground(condition, temp) {
+   const bg = document.getElementById("weatherAnim");
+
+  if (condition.includes("Rain")) {
+    bg.src = "assets/rain.gif";
+   } 
+  else if (condition.includes("Smoke") || condition.includes("Haze") || condition.includes("Fog")) {
+    bg.src = "assets/smoke.gif";
+   } 
+   else if (temp >= 35) {
+     bg.src = "assets/hot.gif";
+  } 
+   else {
+    bg.src = "sea.gif.gif";
+  }
+ }
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
