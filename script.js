@@ -155,10 +155,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-function goToUpdate() {
-  window.location.href = "http://127.0.0.1:5500/firebasePrediction2-main/updateold.html";
-}
+// function goToUpdate() {
+//   window.location.href = "http://127.0.0.1:5500/firebasePrediction2-main/updateold.html";
+// }
 
+function goToUpdate() {
+   window.location.href = "updateold.html";
+ }
 
 
 
