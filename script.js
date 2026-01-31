@@ -144,9 +144,21 @@ function showImage() {
 //   window.location.href = "index.html"; 
 // }
 
+// function goToUpdate() {
+//   window.location.href = "http://127.0.0.1:5500/update.html";
+// }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("updateBtn");
+  if (btn) {
+    btn.addEventListener("click", goToUpdate);
+  }
+});
+
 function goToUpdate() {
-  window.location.href = "http://127.0.0.1:5500/update.html";
+  window.location.href = "http://127.0.0.1:5500/firebasePrediction2-main/updateold.html";
 }
+
 
 
 
